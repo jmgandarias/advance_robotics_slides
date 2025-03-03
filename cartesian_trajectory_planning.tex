@@ -365,11 +365,23 @@ Different types of $\boldsymbol{h}(\mathbf{Q}, t_f)$ (already studied in Robot P
 \begin{frame}[allowframebreaks]
 \frametitle{Methods for Cartesian Trajectory Planning}
 \begin{enumerate}
-    \item Bounded deviation joint paths~\cite{taylor1979planning}.
+    \item Bounded deviation joint paths.
 
-    \item Linear Cartesian interpolation~\cite{paul1979manipulator}.
+    \item Cartesian interpolation.
+    
+    \begin{enumerate}
+        \item Homogeneous matrix interpolation.
+        \item Position interpolation
+        \item Orientation interpolation
+        \item Quaternions interpolation.
+        \item Smooth Cartesian trajectory planning.
+    \end{enumerate}
+    
 
-    \item Dynamic scaling of trajectories~\cite{hollerbach1983dynamic}.
+    \item Optimal trajectory planning.
+    \begin{enumerate}
+        \item Dynamic scaling of the trajectories.
+    \end{enumerate}
 
     % \item Optimal trajectory planning~\cite{vukobratovic1982method}.
 \end{enumerate}
@@ -381,7 +393,7 @@ Different types of $\boldsymbol{h}(\mathbf{Q}, t_f)$ (already studied in Robot P
 
 A hybrid Cartesian-joint approach: To follow a specific trajectory in the Cartesian space, one could define a series of via points (knots) and plan in the joint space.
 
-A bounded deviation joint path defines enough knots to guarantee that the error (in Cartesian space) is bounded between admissible limits.
+A bounded deviation joint path defines enough knots to guarantee that the error (in Cartesian space) is bounded between admissible limits~\cite{taylor1979planning}.
 
  \begin{center}
     \begin{minipage}{.5\linewidth}
@@ -427,24 +439,59 @@ A bounded deviation joint path defines enough knots to guarantee that the error 
         \item If the conditions are not satisfied, repeat steps 2 to 5 for the new segments created.
     \end{enumerate}
 
-    Higher errors usually appear at the beginning and end of the trajectories (when high velocity changes occur).
+    Higher errors usually appear at the beginning and end of the trajectories (due to high velocity changes).
     
 
 
 \end{frame}
 
-\section{Homogeneous Matrix Interpolation}
+\section{Cartesian Interpolation}
+\subsection{Homogeneous Matrix Interpolation}
 \begin{frame}[allowframebreaks]
 \frametitle{Homogeneous Matrix Interpolation}
+
+~\cite{paul1979manipulator}
+
+\end{frame}
+
+\subsection{Interpolation of the Position}
+\begin{frame}[allowframebreaks]
+\frametitle{Interpolation of the Position}
+
+
+\end{frame}
+
+\subsection{Interpolation of the Orientation}
+\begin{frame}[allowframebreaks]
+\frametitle{Interpolation of the Orientation}
 
 
 \end{frame}
 
 
-\section{Dynamic Scaling of Trajectories}
+\subsection{Smooth Cartesian Trajectory Planning}
+\begin{frame}[allowframebreaks]
+\frametitle{Smooth Cartesian Trajectory Planning}
+
+
+Nowadays, we keep studying this~\cite{tagliavini2023smooth}.
+
+\end{frame}
+
+
+\section{Optimal Trajectory Planning}
+\begin{frame}[allowframebreaks]
+\frametitle{Optimal Trajectory Planning}
+
+~\cite{vukobratovic1982method}
+
+\end{frame}
+
+
 \begin{frame}[allowframebreaks]
 \frametitle{Dynamic Scaling of Trajectories}
 
+~\cite{hollerbach1983dynamic}
 
 \end{frame}
 
