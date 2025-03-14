@@ -22,6 +22,8 @@
 \usepackage{algpseudocode}
 \usepackage{mathtools}
 \usepackage{algorithmicx, algorithm2e}
+\usepackage{ragged2e}
+
 % \usepackage{xcolor}
 
 % Enable colored hyperlinks
@@ -99,6 +101,7 @@
 %\beamertemplatenavigationsymbolsempty
 
 \begin{document}
+\justifying
 
 \author[Systems Engineering and Automation]{
 	\large
@@ -161,13 +164,18 @@
 % \setbeamertemplate{itemize subitem}[square]
 
 \begin{frame}
-	\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
 	\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
 \end{frame}
 
 
 
 \section{Introduction}
+
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
 
 \begin{frame}[allowframebreaks]
 \frametitle{Introduction}
@@ -209,7 +217,11 @@
 
     \begin{center}
     \begin{minipage}{.45\linewidth}
-    \includegraphics{images/manipulator_path.pdf}
+    \begin{figure}
+            \centering
+            \includegraphics{images/manipulator_path.pdf}
+            \caption{Cartesian paths illustration.}
+    \end{figure}
     \end{minipage}%
     \begin{minipage}{.6\linewidth}
     \begin{itemize}
@@ -237,8 +249,13 @@
         \end{enumerate}
 
         \vspace{0.5cm}
-        \centering
-        \includegraphics{images/trajectory_planner_schema.pdf}
+        \begin{figure}
+            \centering
+            \includegraphics{images/trajectory_planner_schema.pdf}
+            \caption{Trajectory planner diagram.}
+            % \caption{Cartesian paths illustration.}
+        \end{figure}
+        
     \end{itemize}
 
     \framebreak
@@ -274,6 +291,12 @@
 \end{frame}
 
 \section{Trajectory Planning in the Joint Space}
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+
 \begin{frame}[allowframebreaks]
 \frametitle{Trajectory Planning in the Joint Space}
 
@@ -316,6 +339,11 @@ Different types of $\boldsymbol{h}(\mathbf{Q}, t_f)$ (already studied in Robot P
 \end{frame}
 
 \section{Trajectory Planning in the Cartesian Space}
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
 \begin{frame}[allowframebreaks]
 \frametitle{Trajectory Planning in the Operational Space}
 
@@ -362,32 +390,36 @@ Different types of $\boldsymbol{h}(\mathbf{Q}, t_f)$ (already studied in Robot P
 \end{minipage}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-\frametitle{Methods for Cartesian Trajectory Planning}
-\begin{enumerate}
-    \item Bounded deviation joint paths.
+% \begin{frame}[allowframebreaks]
+% \frametitle{Methods for Cartesian Trajectory Planning}
+% \begin{enumerate}
+%     \item Bounded deviation joint paths.
 
-    \item Cartesian interpolation.
+%     \item Cartesian interpolation.
     
-    \begin{enumerate}
-        \item Homogeneous matrix interpolation.
-        \item Position interpolation
-        \item Orientation interpolation
-        \item Quaternions interpolation.
-        \item Smooth Cartesian trajectory planning.
-    \end{enumerate}
+%     \begin{enumerate}
+%         \item Homogeneous matrix interpolation.
+%         \item Position interpolation
+%         \item Orientation interpolation
+%         \item Quaternions interpolation.
+%         \item Smooth Cartesian trajectory planning.
+%     \end{enumerate}
     
 
-    \item Optimal trajectory planning.
-    \begin{enumerate}
-        \item Dynamic scaling of the trajectories.
-    \end{enumerate}
+%     \item Optimal trajectory planning.
+%     \begin{enumerate}
+%         \item Dynamic scaling of the trajectories.
+%     \end{enumerate}
 
-    % \item Optimal trajectory planning~\cite{vukobratovic1982method}.
-\end{enumerate}
-\end{frame}
+%     % \item Optimal trajectory planning~\cite{vukobratovic1982method}.
+% \end{enumerate}
+% \end{frame}
 
 \section{Bounded Deviation Joint Paths}
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{Bounded Deviation Joint Paths}
 
@@ -397,13 +429,20 @@ A bounded deviation joint path defines enough knots to guarantee that the error 
 
  \begin{center}
     \begin{minipage}{.5\linewidth}
-    \includegraphics[width = 0.9\textwidth]{images/bounded_joint_path.pdf}
+    \begin{figure}
+        \centering
+        \includegraphics[width = 0.8\textwidth]{images/bounded_joint_path.pdf}
+        \caption{Bounded deviation paths.}
+    \end{figure}
     
-    $-$Desired Cartesian path.
+    \begin{footnotesize}
+        $\cdots$ Desired Cartesian path.
     
-    \textcolor{uma_pink}{$-$Bounded deviation path with few knots.}
+        \textcolor{uma_pink}{$-$ Bounded deviation path with few knots.}
     
-    \textcolor{uma_blue_light}{$-$Bounded deviation path with many knots.}
+        \textcolor{uma_blue_light}{$-$ Bounded deviation path with many knots.}    
+    \end{footnotesize}
+    
     \end{minipage}%
     \hspace{0.5cm}
     \begin{minipage}{.45\linewidth}
@@ -420,7 +459,7 @@ A bounded deviation joint path defines enough knots to guarantee that the error 
         \item Low error.
     \end{itemize}
     \end{minipage}
-    \end{center}
+\end{center}
 
     \framebreak
 
@@ -447,21 +486,126 @@ A bounded deviation joint path defines enough knots to guarantee that the error 
 
 \section{Cartesian Interpolation}
 \subsection{Homogeneous Matrix Interpolation}
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection,
+        currentsubsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
 \begin{frame}[allowframebreaks]
 \frametitle{Homogeneous Matrix Interpolation}
 
-~\cite{paul1979manipulator}
+This method was proposed by Richard Paul~\cite{paul1979manipulator} to make up paths consist of straight line segments connected by smooth transitions with controlled acceleration.
 
+\textcolor{uma_blue_dark}{\textbf{Concept}}
+\begin{itemize}
+    \item One of the simplest ways to change from one transform to the other is by a straight line translation and a rotation about same fixed axis in space.
+    \item With such a line and axis then we can produce a motion of controlled linear and angular velocity.
+    \item  However, the motion is made in terms of a translation and two rotations. The first rotation will serve to align the tool in the required final direction and the second rotation will control the orientation of the tool about the tool axis.
+    \item As all manipulators end in a rotary joint, this second rotation in space corresponds to a rotation of the final joint of the manipulator. 
+\end{itemize}
+
+\framebreak
+
+
+\begin{center}
+    \begin{minipage}{.45\linewidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width = 1\textwidth]{images/industrial_manipulator_task.pdf}
+            \caption{Typical industrial manipulation task (source:~\cite{luh1983conventional}).}
+        \end{figure}
+    \end{minipage}%
+    \hspace{0.5cm}
+    \begin{minipage}{.5\linewidth}
+    3 basic motions
+    \begin{itemize}
+        \item Translation: Linear displacement from $\mathbf{x}_A$ to $\mathbf{x}_B$.
+        \item Rotation around translation axis: Ensuring Z-axis fo the EE and Z-axis of $\mathbf{x}_B$ are coincident.
+        \item Rotation around Z-axis: Orient the EE (tool).  
+    \end{itemize}
+    \end{minipage}
+\end{center}
+
+\framebreak
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.8\textwidth]{images/linear_segment.pdf}
+    \caption{Linear segment representation between positions following the nomenclature in~\cite{paul1979manipulator}.}
+\end{figure}
+
+\framebreak
+
+The homogeneous transformation between points $A$ and $B$ w.r.t. the world frame $W$ is defined as
+$$
+^A\mathbf{T}_B = \left[\begin{matrix}
+    \mathbf{A}_n\mathbf{B}_n & \mathbf{A}_n\mathbf{B}_o & \mathbf{A}n\mathbf{B}_a & \mathbf{A}_{n}(\mathbf{B}_p - \mathbf{A}_p) \\
+    \mathbf{A}_o\mathbf{B}_n & \mathbf{A}_o\mathbf{B}_o & \mathbf{A}o\mathbf{B}_a & \mathbf{A}_{o}(\mathbf{B}_p - \mathbf{A}_p) \\
+    \mathbf{A}_a\mathbf{B}_n & \mathbf{A}_a\mathbf{B}_o & \mathbf{A}a\mathbf{B}_a & \mathbf{A}_{a}(\mathbf{B}_p - \mathbf{A}_p) \\
+    0 & 0 & 0 & 1 \\
+\end{matrix}\right]
+$$
+This transformation is the result of applying the three motions described above (one translation $\mathbf{T}$ and two rotations $\mathbf{R}_a$ and $\mathbf{R}_b$)
+$$
+^A\mathbf{T}_B = \mathbf{T} \mathbf{R}_a \mathbf{R}_b
+$$
+
+To achieve a desired Cartesian path, We can choose intermediate values of $^A\mathbf{T}_B $ representing a translation and two rotations. To achieve a linear segment (linear interpolation) we will choose intermediate values $h$ of $^A\mathbf{T}_B$, where $h\in\mathbb{R} : 0\leq h \leq 1$. 
+
+\framebreak
+
+The translation will be along the line joining $A$ and $B$ and will be represented by the transformation $T(h)$. The first rotation will serve to rotate the approach vector, the direction in which the tool is pointing, from $A$ into the approach vector at $B$. This rotation will be represented by $R_a(h)$. The second rotation will rotate the orientation vector, representing the orientation of the tool, from $A$ into the orientation vector at $B$, $R_o(h)$. We will then represent $^A\mathbf{T}_B(h)$ as
+
+$$
+^A\mathbf{T}_B(h) = \mathbf{T}(h) \mathbf{R}_a(h) \mathbf{R}_b(h)
+$$
+
+Then, if $h=0 \implies ^A\mathbf{T}_B(0) = ^W\mathbf{T}_A$ and $h=1 \implies ^A\mathbf{T}_B(1) = ^W\mathbf{T}_B$.
+
+
+
+\framebreak 
+
+This way, varying $h$ linearly over time, the EE of the manipulator will follow a perfect linear trajectory in the Cartesian space.
+
+According to this, both the translation and rotations will be directly proportional to $h$ so that if $h$ varies linearly with respect to time,  the motion represented by $^A\mathbf{T}_B(h)$ will correspond to a constant linear and two constant angular velocities. 
 \end{frame}
 
 \subsection{Interpolation of the Position}
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection,
+        currentsubsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{Interpolation of the Position}
 
+The interpolation of the position is straightforward by defining a straight line joining $A$ and $B$ (path) interpolated over time (trajectory)
+
+$$
+^A\mathbf{T}_B(h) = \left[\begin{matrix}
+     &   &  & hx \\
+     &  \mathbf{I}_{3 \times 3} &  & hy \\
+     &   &  & hz \\
+     & \mathbf{0}_{1 \times 3} &  & 1 \\
+\end{matrix}\right] =
+\left[\begin{matrix}
+     &   &  & hx \\
+     &  \mathbf{I}_{3 \times 3} &  & hy \\
+     &   &  & hz \\
+     & \mathbf{0}_{1 \times 3} &  & 1 \\
+\end{matrix}\right]
+$$
 
 \end{frame}
 
 \subsection{Interpolation of the Orientation}
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection,
+        currentsubsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{Interpolation of the Orientation}
 
@@ -470,6 +614,11 @@ A bounded deviation joint path defines enough knots to guarantee that the error 
 
 
 \subsection{Smooth Cartesian Trajectory Planning}
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection,
+        currentsubsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{Smooth Cartesian Trajectory Planning}
 
@@ -480,6 +629,11 @@ Nowadays, we keep studying this~\cite{tagliavini2023smooth}.
 
 
 \section{Optimal Trajectory Planning}
+\begin{frame}
+	\frametitle{Outline} % Table of contents slide, comment this block out to remove it
+	\tableofcontents[currentsection,
+        currentsubsection] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
 \begin{frame}[allowframebreaks]
 \frametitle{Optimal Trajectory Planning}
 
